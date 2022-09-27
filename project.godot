@@ -10,10 +10,29 @@ config_version=5
 
 [application]
 
-config/name="ninja"
+config/name="Ninja"
+run/main_scene="res://src/Game.tscn"
 config/features=PackedStringArray("4.0", "Vulkan Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=288
+window/size/window_width_override=1024
+window/size/window_height_override=576
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="Map"
+2d_physics/layer_4="Bullets"
 
 [rendering]
 
 vulkan/rendering/back_end=1
+environment/defaults/default_clear_color=Color(0.894118, 0.847059, 0.756863, 1)
+textures/canvas_textures/default_texture_filter=0

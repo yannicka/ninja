@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcuee28qabynd"]
+
+[ext_resource type="Script" path="res://src/Enemies/ElectricBall.gd" id="1_8h5bv"]
+[ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_pryyx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y2xj"]
+atlas = ExtResource("1_pryyx")
+region = Rect2(0, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dttw"]
+atlas = ExtResource("1_pryyx")
+region = Rect2(16, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rl4aw"]
+atlas = ExtResource("1_pryyx")
+region = Rect2(32, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fangg"]
+animations = [{
+"frames": [SubResource("AtlasTexture_4y2xj"), SubResource("AtlasTexture_1dttw"), SubResource("AtlasTexture_rl4aw")],
+"loop": true,
+"name": &"electric",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_patmw"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sk55k"]
+radius = 4.12311
+
+[node name="ElectricBall" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_8h5bv")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_fangg")
+animation = &"electric"
+playing = true
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_patmw")
+
+[node name="Area2d" type="Area2D" parent="."]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
+shape = SubResource("CircleShape2D_sk55k")
+
+[connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]
