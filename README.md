@@ -65,11 +65,16 @@
 ### Plateforme en attente
 
 - Ne bouge pas tant qu'on est pas grimpé dessus.
+- Quand on monte dessus, elle parte dans la direction donnée jusqu'au prochain mur (où elles ne bougent plus, sauf si on remonte dessus).
 
 ### Plateforme tombante
 
 - Ne bouge pas.
 - Descend sous le poids du joueur.
+
+### Plateformes ascenseur
+
+- Pleins de plateformes de qui bougent de bas en haut (elles disparaissent arrivés au bout, et de nouvelles apparaissent, indéfinement).
 
 
 ## Collectables
