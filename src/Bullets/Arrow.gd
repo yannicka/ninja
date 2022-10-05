@@ -8,9 +8,11 @@ func _ready():
 	timer.wait_time = 1
 	add_child(timer)
 	timer.start()
+	$top_checker/CollisionShape2d.disabled = true
 
 func on_start():
 	velocity.x = SPEED
+	$top_checker/CollisionShape2d.disabled = false
 	$AnimatedSprite2d.play("default")
 
 	var timer = Timer.new()
@@ -35,20 +37,8 @@ func _physics_process(delta):
 
 		$AnimatedSprite2d.play("stop")
 
-# @todo
+
 func _on_top_checker_body_entered(body):
-	if body.has_method("bounce"):
+	if body.has_method("die_or_bounce"):
+		body.die_or_bounce()
 		queue_free()
-
-		body.bounce()
-
-
-# @todo
-func _on_sides_checker_body_entered(body):
-	if body.has_method("die"):
-		body.die()
-
-
-func _on_area_2d_body_entered(body):
-	if velocity.x > 0 and body.has_method("die"):
-		body.die()

@@ -19,7 +19,7 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="ArrowShotter" type="StaticBody2D"]
-collision_layer = 4
+collision_layer = 16
 script = ExtResource("1_7omhe")
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]

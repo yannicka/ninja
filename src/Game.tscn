@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://doog8g363c1p6"]
+[gd_scene load_steps=9 format=3 uid="uid://doog8g363c1p6"]
 
 [ext_resource type="PackedScene" uid="uid://biajlk6f84745" path="res://src/Tiles.tscn" id="1_fk43q"]
 [ext_resource type="Script" path="res://src/Game.gd" id="1_knod3"]
 [ext_resource type="PackedScene" uid="uid://bxo8l2jkxny1t" path="res://src/Player.tscn" id="2_f4sv1"]
 [ext_resource type="PackedScene" uid="uid://dcuee28qabynd" path="res://src/Enemies/ElectricBall.tscn" id="3_7c28m"]
 [ext_resource type="PackedScene" uid="uid://kpyr7t3u4hux" path="res://src/Enemies/ArrowShotter.tscn" id="4_lxtq4"]
+[ext_resource type="PackedScene" uid="uid://bglxnt2n43w5b" path="res://src/Enemies/Ramper.tscn" id="6_6t880"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_537cd"]
 size = Vector2(256, 288)
@@ -54,6 +55,18 @@ shape = SubResource("RectangleShape2D_537cd")
 [node name="CollisionShape2d" type="CollisionShape2D" parent="CanvasLayer/JumpArea"]
 position = Vector2(384, 144)
 shape = SubResource("RectangleShape2D_wws52")
+
+[node name="Ramper" parent="." instance=ExtResource("6_6t880")]
+position = Vector2(80, 184)
+
+[node name="Ramper2" parent="." instance=ExtResource("6_6t880")]
+position = Vector2(104, 184)
+
+[node name="Ramper3" parent="." instance=ExtResource("6_6t880")]
+position = Vector2(208, 184)
+
+[node name="Ramper4" parent="." instance=ExtResource("6_6t880")]
+position = Vector2(240, 184)
 
 [connection signal="input_event" from="CanvasLayer/MoveArea" to="." method="_on_move_area_input_event"]
 [connection signal="input_event" from="CanvasLayer/JumpArea" to="." method="_on_jump_area_input_event"]

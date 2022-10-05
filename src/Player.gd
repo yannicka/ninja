@@ -11,13 +11,13 @@ var direction = Vector2.RIGHT
 
 var is_dead = false
 
+var state = "idle"
+
 @export var move = false
 
 func _physics_process(delta):
 	if is_dead:
 		return
-
-	print(move)
 
 	# Add the gravity.
 	if not is_on_floor():
@@ -26,6 +26,7 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		state = "jump"
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -38,6 +39,12 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	if velocity.y > 0:
+		state = "fall"
+
+	if is_on_floor():
+		state = "idle"
 
 	move_and_slide()
 
@@ -57,12 +64,23 @@ func set_direction(direction: Vector2) -> void:
 
 		scale.x = -1
 
+func bounce():
+	velocity.y = -300
+	print("bounce")
+
+
 func die():
 	is_dead = true
 	velocity = Vector2(0, 0)
 
 	$AnimatedSprite.play("die")
 	$CollisionShape2d.disabled = true
+
+func die_or_bounce():
+	if state == "fall":
+		bounce()
+	else:
+		die()
 
 
 func _on_animated_sprite_animation_finished():
