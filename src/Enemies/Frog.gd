@@ -6,6 +6,8 @@ const MAX_GRAVITY = 200
 
 @onready var player = get_parent().get_node("Player")
 
+var direction = Vector2.RIGHT
+
 func _ready() -> void:
 	var timer = Timer.new()
 	timer.connect("timeout", on_timer_timeout)
@@ -29,10 +31,16 @@ func _on_area_2d_body_entered(body):
 		queue_free()
 
 func on_timer_timeout() -> void:
+	var direction_before = Vector2(direction)
+
 	if player.global_position.x < global_position.x:
-		scale.x = -1
+		direction = Vector2.LEFT
 		velocity = Vector2(-30, -200)
 	else:
+		direction = Vector2.RIGHT
 		velocity = Vector2(30, -200)
+
+	if direction != direction_before:
+		scale.x = -1
 
 	$AnimatedSprite2d.play("jump")
