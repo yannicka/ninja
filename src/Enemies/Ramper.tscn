@@ -40,6 +40,7 @@ position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_03qnk")
 
 [node name="Area2d" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
 position = Vector2(0, 3)
