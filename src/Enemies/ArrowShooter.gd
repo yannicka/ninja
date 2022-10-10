@@ -11,7 +11,6 @@ func _ready():
 	add_child(timer)
 	timer.start()
 
-
 func on_timer_timeout():
 	var arrow = Arrow.instantiate()
 	arrow.global_position = Vector2(self.global_position.x - 5, self.global_position.y)

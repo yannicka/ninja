@@ -21,10 +21,8 @@ func on_start():
 	add_child(timer)
 	timer.start()
 
-
 func on_remove():
 	queue_free()
-
 
 func _physics_process(delta):
 	move_and_slide()
