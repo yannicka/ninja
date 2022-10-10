@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bug7wfac4knlm"]
+
+[ext_resource type="Script" path="res://src/Enemies/TurtleSpinningTop.gd" id="1_l3r16"]
+[ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_tk04q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esnl3"]
+atlas = ExtResource("1_tk04q")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nr2fk"]
+animations = [{
+"frames": [SubResource("AtlasTexture_esnl3")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fl38u"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l4w07"]
+radius = 5.09902
+
+[node name="TurtleSpinningTop" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 20
+script = ExtResource("1_l3r16")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_nr2fk")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_fl38u")
+
+[node name="Area2d" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_l4w07")
+
+[connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]

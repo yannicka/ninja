@@ -72,7 +72,7 @@ position = Vector2(168, 160)
 position = Vector2(160, 187)
 
 [node name="Turtle" parent="." instance=ExtResource("10_cwbnh")]
-position = Vector2(224, 184)
+position = Vector2(144, 184)
 
 [connection signal="input_event" from="CanvasLayer/MoveArea" to="." method="_on_move_area_input_event"]
 [connection signal="input_event" from="CanvasLayer/JumpArea" to="." method="_on_jump_area_input_event"]
