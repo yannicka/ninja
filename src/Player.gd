@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 160.0
 const JUMP_VELOCITY = -400.0
 
@@ -24,9 +23,8 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		state = "jump"
+	if Input.is_action_just_pressed("ui_up"):
+		jump()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -57,6 +55,10 @@ func _physics_process(delta):
 		else:
 			$AnimatedSprite.play("idle")
 
+func jump():
+	if is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		state = "jump"
 
 func set_direction(direction: Vector2) -> void:
 	if direction != self.direction:
@@ -66,7 +68,6 @@ func set_direction(direction: Vector2) -> void:
 
 func bounce():
 	velocity.y = -300
-
 
 func die():
 	is_dead = true
@@ -80,7 +81,6 @@ func die_or_bounce():
 		bounce()
 	else:
 		die()
-
 
 func _on_animated_sprite_animation_finished():
 	if $AnimatedSprite.animation == "die":
