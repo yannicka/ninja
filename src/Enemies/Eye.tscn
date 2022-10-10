@@ -64,7 +64,6 @@ _data = {
 }
 
 [node name="Eye" type="Node2D"]
-position = Vector2(0, -8)
 script = ExtResource("1_l4aqx")
 
 [node name="CharacterBody2d" type="CharacterBody2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://doog8g363c1p6"]
+[gd_scene load_steps=12 format=3 uid="uid://doog8g363c1p6"]
 
 [ext_resource type="PackedScene" uid="uid://biajlk6f84745" path="res://src/Tiles.tscn" id="1_fk43q"]
 [ext_resource type="Script" path="res://src/Game.gd" id="1_knod3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bglxnt2n43w5b" path="res://src/Enemies/Ramper.tscn" id="6_6t880"]
 [ext_resource type="PackedScene" uid="uid://diubd83y28bnc" path="res://src/Enemies/Cannon.tscn" id="7_g5m1q"]
 [ext_resource type="PackedScene" uid="uid://b8mbslrey0adw" path="res://src/Enemies/Eye.tscn" id="8_hlijp"]
+[ext_resource type="PackedScene" uid="uid://ddnpyfnkm0p5m" path="res://src/Enemies/Frog.tscn" id="9_ukcx3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_537cd"]
 size = Vector2(256, 288)
@@ -72,6 +73,9 @@ position = Vector2(336, 184)
 
 [node name="Eye" parent="." instance=ExtResource("8_hlijp")]
 position = Vector2(168, 160)
+
+[node name="Frog" parent="." instance=ExtResource("9_ukcx3")]
+position = Vector2(160, 187)
 
 [connection signal="input_event" from="CanvasLayer/MoveArea" to="." method="_on_move_area_input_event"]
 [connection signal="input_event" from="CanvasLayer/JumpArea" to="." method="_on_jump_area_input_event"]
