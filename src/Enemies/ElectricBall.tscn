@@ -43,6 +43,7 @@ playing = true
 shape = SubResource("CircleShape2D_patmw")
 
 [node name="Area2d" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
 shape = SubResource("CircleShape2D_sk55k")

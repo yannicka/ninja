@@ -54,6 +54,7 @@ shape = SubResource("RectangleShape2D_nb0px")
 
 [node name="top_checker" type="Area2D" parent="."]
 position = Vector2(0, -2)
+collision_layer = 8
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="top_checker"]
 position = Vector2(-0.5, 2.5)

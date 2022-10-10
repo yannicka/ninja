@@ -33,6 +33,7 @@ frames = SubResource("SpriteFrames_riomt")
 shape = SubResource("CircleShape2D_va4gb")
 
 [node name="Area2d" type="Area2D" parent="."]
+collision_layer = 8
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
 shape = SubResource("CircleShape2D_djotb")
