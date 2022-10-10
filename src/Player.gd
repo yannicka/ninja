@@ -66,7 +66,6 @@ func set_direction(direction: Vector2) -> void:
 
 func bounce():
 	velocity.y = -300
-	print("bounce")
 
 
 func die():

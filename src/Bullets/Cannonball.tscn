@@ -1,3 +1,40 @@
-[gd_scene format=3 uid="uid://dhtjnu1o8tbt6"]
+[gd_scene load_steps=7 format=3 uid="uid://dhtjnu1o8tbt6"]
 
-[node name="Cannonball" type="Node2D"]
+[ext_resource type="Script" path="res://src/Bullets/Cannonball.gd" id="1_0j264"]
+[ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_75hbg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixrbm"]
+atlas = ExtResource("1_75hbg")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_riomt"]
+animations = [{
+"frames": [SubResource("AtlasTexture_ixrbm")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_va4gb"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_djotb"]
+radius = 2.23607
+
+[node name="Cannonball" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_0j264")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_riomt")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_va4gb")
+
+[node name="Area2d" type="Area2D" parent="."]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
+shape = SubResource("CircleShape2D_djotb")
+
+[connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]

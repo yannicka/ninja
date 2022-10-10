@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://kpyr7t3u4hux"]
+[gd_scene load_steps=6 format=3 uid="uid://dwm68wm1uvye0"]
 
-[ext_resource type="Script" path="res://src/Enemies/ArrowShotter.gd" id="1_7omhe"]
+[ext_resource type="Script" path="res://src/Enemies/ArrowShooter.gd" id="1_7omhe"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_udyds"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v3b1y"]
