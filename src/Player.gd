@@ -28,13 +28,18 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var input_direction = Input.get_axis("ui_left", "ui_right")
 
 	if move:
-		direction = 1
+		input_direction = 1
 
-	if direction:
-		velocity.x = direction * SPEED
+	if input_direction == 1:
+		set_direction(Vector2.RIGHT)
+	elif input_direction == -1:
+		set_direction(Vector2.LEFT)
+
+	if input_direction:
+		velocity.x = input_direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -46,14 +51,13 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-	# Animation
-	if velocity.y != 0:
-		$AnimatedSprite.play("jump")
-	else:
+	if is_on_floor():
 		if velocity.x != 0:
 			$AnimatedSprite.play("walk")
 		else:
 			$AnimatedSprite.play("idle")
+	else:
+		$AnimatedSprite.play("jump")
 
 func jump():
 	if is_on_floor():

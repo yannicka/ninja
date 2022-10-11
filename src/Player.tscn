@@ -56,7 +56,8 @@ script = ExtResource("1_nxbjv")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_lhsdo")
-animation = &"die"
+animation = &"idle"
+playing = true
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)

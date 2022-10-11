@@ -32,6 +32,7 @@ current = true
 limit_left = 0
 limit_top = 0
 limit_bottom = 288
+smoothing_enabled = true
 
 [node name="ElectricBall" parent="." instance=ExtResource("3_7c28m")]
 position = Vector2(248, 89)
