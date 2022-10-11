@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://src/Enemies/Turtle.gd" id="1_htvwi"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_tk04q"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_esnl3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtov7"]
 atlas = ExtResource("1_tk04q")
-region = Rect2(0, 16, 16, 16)
+region = Rect2(0, 160, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nr2fk"]
 animations = [{
-"frames": [SubResource("AtlasTexture_esnl3")],
+"frames": [SubResource("AtlasTexture_wtov7")],
 "loop": true,
 "name": &"default",
 "speed": 5.0
