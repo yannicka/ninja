@@ -4,6 +4,8 @@ const SPEED = 70
 
 @export var direction = Vector2.RIGHT
 
+var age = 0
+
 func _ready():
 	velocity.x = SPEED * direction.x
 
@@ -19,7 +21,9 @@ func _physics_process(delta):
 
 		scale.x = -1
 
+	age += delta
+
 func _on_area_2d_body_entered(body):
-	if body.has_method("die_or_bounce"):
+	if age > 0.05 and body.has_method("die_or_bounce"):
 		body.die_or_bounce()
 		queue_free()
