@@ -18,6 +18,10 @@ func _physics_process(delta):
 	if is_dead:
 		return
 
+	if position.y > 300:
+		die()
+		return
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -77,7 +81,7 @@ func die():
 	is_dead = true
 	velocity = Vector2(0, 0)
 
-	$AnimatedSprite.play("die")
+	$AnimationPlayer.play("die")
 	$CollisionShape2d.disabled = true
 
 func die_or_bounce():
@@ -86,6 +90,6 @@ func die_or_bounce():
 	else:
 		die()
 
-func _on_animated_sprite_animation_finished():
-	if $AnimatedSprite.animation == "die":
-		get_tree().change_scene_to_file("res://src/Game.tscn")
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "die":
+		get_tree().root.get_child(0).change_scene2("res://src/Game.tscn")
