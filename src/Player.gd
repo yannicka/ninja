@@ -92,4 +92,4 @@ func die_or_bounce():
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "die":
-		get_tree().root.get_child(0).change_scene2("res://src/Scenes/Game.tscn")
+		TransitionScene.change_scene("res://src/Scenes/Game.tscn")

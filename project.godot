@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Ninja"
-run/main_scene="res://src/SceneManager.tscn"
+run/main_scene="res://src/Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
+
+[autoload]
+
+TransitionScene="*res://src/Scenes/TransitionScene.tscn"
 
 [display]
 
