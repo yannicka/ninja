@@ -12,7 +12,6 @@ grow_vertical = 2
 script = ExtResource("1_rhqyh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -21,7 +20,6 @@ grow_vertical = 2
 color = Color(0.192157, 0.160784, 0.137255, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,15 +27,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
 offset_left = 179.0
-offset_top = 59.0
+offset_top = 40.0
 offset_right = 333.0
-offset_bottom = 197.0
+offset_bottom = 216.0
 theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
 offset_right = 154.0
 offset_bottom = 86.0
 theme_override_font_sizes/font_size = 60
@@ -45,7 +41,6 @@ text = "Ninja"
 horizontal_alignment = 1
 
 [node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 96.0
 offset_right = 154.0
 offset_bottom = 138.0
@@ -53,4 +48,12 @@ theme_override_font_sizes/font_size = 24
 text = "Jouer"
 icon_alignment = 1
 
+[node name="CreditsButton" type="Button" parent="CenterContainer/VBoxContainer"]
+offset_top = 148.0
+offset_right = 154.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 14
+text = "Crédits"
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
