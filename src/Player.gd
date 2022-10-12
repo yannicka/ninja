@@ -29,14 +29,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_up"):
 		jump()
 
-	if Input.is_action_pressed("space"):
+	if move or Input.is_action_pressed("space"):
 		move = true
 	else:
 		move = false
 
-	var in_move = Input.get_axis("ui_left", "ui_right") or move
-
-	if in_move:
+	if move:
 		velocity.x = direction.x * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
