@@ -22,7 +22,6 @@ func _physics_process(delta):
 		die()
 		return
 
-	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -30,20 +29,15 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_up"):
 		jump()
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_direction = Input.get_axis("ui_left", "ui_right")
+	if Input.is_action_pressed("space"):
+		move = true
+	else:
+		move = false
 
-	if move:
-		input_direction = 1
+	var in_move = Input.get_axis("ui_left", "ui_right") or move
 
-	if input_direction == 1:
-		set_direction(Vector2.RIGHT)
-	elif input_direction == -1:
-		set_direction(Vector2.LEFT)
-
-	if input_direction:
-		velocity.x = input_direction * SPEED
+	if in_move:
+		velocity.x = direction.x * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
