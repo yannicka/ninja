@@ -1,12 +1,16 @@
 extends Node2D
 
-func _on_move_area_input_event(viewport, event, shape_idx):
-	if event.is_pressed():
-		$Player.move = true
-	else:
-		$Player.move = false
-
-func _on_jump_area_input_event(viewport, event, shape_idx):
+func _input(event):
 	if event is InputEventScreenTouch:
-		if event.is_pressed():
-			$Player.jump()
+		var viewport_size = get_viewport_rect().size
+		var half_viewport_width = viewport_size.x / 2
+		var pointer_position = event.position
+
+		if pointer_position.x < half_viewport_width:
+			if event.pressed:
+				$Level1/Player.move = true
+			else:
+				$Level1/Player.move = false
+		else:
+			if event.pressed:
+				$Level1/Player.jump()

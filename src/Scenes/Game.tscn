@@ -1,32 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bd6u04topve1x"]
+[gd_scene load_steps=3 format=3 uid="uid://bd6u04topve1x"]
 
 [ext_resource type="Script" path="res://src/Scenes/Game.gd" id="1_knod3"]
 [ext_resource type="PackedScene" uid="uid://d3a8ix3a4x7ew" path="res://src/Levels/Level1.tscn" id="2_i20mq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_537cd"]
-size = Vector2(256, 256)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wws52"]
-size = Vector2(256, 256)
-
-[node name="Node2d" type="Node2D"]
+[node name="Game" type="Node2D"]
 script = ExtResource("1_knod3")
 
 [node name="Level1" parent="." instance=ExtResource("2_i20mq")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="MoveArea" type="Area2D" parent="CanvasLayer"]
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="CanvasLayer/MoveArea"]
-position = Vector2(128, 128)
-shape = SubResource("RectangleShape2D_537cd")
-
-[node name="JumpArea" type="Area2D" parent="CanvasLayer"]
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="CanvasLayer/JumpArea"]
-position = Vector2(384, 128)
-shape = SubResource("RectangleShape2D_wws52")
-
-[connection signal="input_event" from="CanvasLayer/MoveArea" to="." method="_on_move_area_input_event"]
-[connection signal="input_event" from="CanvasLayer/JumpArea" to="." method="_on_jump_area_input_event"]
