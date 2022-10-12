@@ -41,6 +41,21 @@ animations = [{
 radius = 3.0
 height = 12.0
 
+[sub_resource type="Animation" id="Animation_6fo3u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_xwvhh"]
 resource_name = "die"
 length = 0.8
@@ -58,21 +73,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -40), Vector2(0, 340)]
 }
 
-[sub_resource type="Animation" id="Animation_6fo3u"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oeehf"]
 _data = {
 "RESET": SubResource("Animation_6fo3u"),
@@ -82,6 +82,13 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 20
 script = ExtResource("1_nxbjv")
+
+[node name="Camera2d" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0
+limit_bottom = 256
+smoothing_enabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_lhsdo")
@@ -102,5 +109,4 @@ libraries = {
 "": SubResource("AnimationLibrary_oeehf")
 }
 
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_animated_sprite_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
