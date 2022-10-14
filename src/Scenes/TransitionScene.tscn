@@ -57,7 +57,7 @@ _data = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
-layer = 0
+layer = 100
 script = ExtResource("1_ull13")
 
 [node name="ColorRect" type="ColorRect" parent="."]
