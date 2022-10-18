@@ -80,7 +80,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 20
+collision_mask = 52
 script = ExtResource("1_nxbjv")
 
 [node name="Camera2d" type="Camera2D" parent="."]
@@ -88,7 +88,6 @@ current = true
 limit_left = 0
 limit_top = 0
 limit_bottom = 256
-smoothing_enabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_lhsdo")

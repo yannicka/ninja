@@ -34,6 +34,16 @@ func _physics_process(delta):
 	else:
 		move = false
 
+	if OS.is_debug_build():
+		if Input.is_action_pressed("ui_left"):
+			direction = Vector2.LEFT
+			move = true
+		elif Input.is_action_pressed("ui_right"):
+			direction = Vector2.RIGHT
+			move = true
+		else:
+			move = false
+
 	if move:
 		velocity.x = direction.x * SPEED
 	else:
