@@ -1,9 +1,9 @@
-extends Node2D
+extends AnimatableBody2D
 
-var velocity = Vector2(80, 0)
+var velocity = Vector2(20, 0)
 
 func _process(delta: float):
-	var collision = $AnimatableBody2D.move_and_collide(velocity * delta)
+	var collision = move_and_collide(velocity * delta)
 
 	if collision:
 		velocity.x *= -1

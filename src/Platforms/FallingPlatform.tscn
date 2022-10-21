@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckn1578id3sc4"]
+
+[ext_resource type="Script" path="res://src/Platforms/FallingPlatform.gd" id="1_sapr0"]
+[ext_resource type="Texture2D" uid="uid://c1v422dxujuhh" path="res://assets/platforms.png" id="1_u2bt8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1d1k"]
+atlas = ExtResource("1_u2bt8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dc0tb"]
+animations = [{
+"frames": [SubResource("AtlasTexture_l1d1k")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tbpv"]
+size = Vector2(25, 5)
+
+[node name="FallingPlatform" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 20
+script = ExtResource("1_sapr0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_dc0tb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_6tbpv")
+one_way_collision = true

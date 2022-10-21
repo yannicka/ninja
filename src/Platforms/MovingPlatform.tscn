@@ -18,18 +18,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhgtm"]
 size = Vector2(25, 5)
 
-[node name="MovingPlatform" type="Node2D"]
-script = ExtResource("1_makkr")
-
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+[node name="MovingPlatform" type="AnimatableBody2D"]
 collision_layer = 32
 collision_mask = 20
+sync_to_physics = false
+script = ExtResource("1_makkr")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, 2)
 frames = SubResource("SpriteFrames_qmutl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_lhgtm")
 one_way_collision = true
