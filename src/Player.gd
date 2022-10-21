@@ -27,6 +27,9 @@ func _physics_process(delta):
 		if collision.get_collider().has_method("fall"):
 			collision.get_collider().fall(delta)
 
+		if collision.get_collider().has_method("advance"):
+			collision.get_collider().advance(delta)
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
