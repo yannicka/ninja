@@ -22,6 +22,11 @@ func _physics_process(delta):
 		die()
 		return
 
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().has_method("fall"):
+			collision.get_collider().fall(delta)
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
 

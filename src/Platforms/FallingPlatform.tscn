@@ -20,7 +20,7 @@ size = Vector2(25, 5)
 
 [node name="FallingPlatform" type="CharacterBody2D"]
 collision_layer = 32
-collision_mask = 20
+collision_mask = 21
 script = ExtResource("1_sapr0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
