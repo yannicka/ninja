@@ -1,7 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxo8l2jkxny1t"]
+[gd_scene load_steps=15 format=3 uid="uid://bxo8l2jkxny1t"]
 
 [ext_resource type="Script" path="res://src/Player.gd" id="1_nxbjv"]
+[ext_resource type="Texture2D" uid="uid://chs23kcx8ip2b" path="res://assets/particles.png" id="2_6ojfv"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="2_u7a5e"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ghe24"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2onol"]
+particle_flag_disable_z = true
+gravity = Vector3(-98, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_max = 66.66
+anim_offset_max = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frqgx"]
 atlas = ExtResource("2_u7a5e")
@@ -88,6 +103,13 @@ current = true
 limit_left = 0
 limit_top = 0
 limit_bottom = 256
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_ghe24")
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_2onol")
+texture = ExtResource("2_6ojfv")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_lhsdo")

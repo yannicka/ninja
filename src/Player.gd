@@ -14,6 +14,8 @@ var state = "idle"
 
 @export var move = false
 
+var boost_mode = false
+
 func _physics_process(delta):
 	if is_dead:
 		return
@@ -103,3 +105,8 @@ func die_or_bounce():
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "die":
 		TransitionScene.change_scene("res://src/Scenes/Game.tscn")
+
+func boost():
+	boost_mode = true
+
+	$GPUParticles2D.visible = true
