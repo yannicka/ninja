@@ -54,6 +54,14 @@
 - Les flèches tuent si elles touchent
 - Les flèches restent accrochés au mur sur lequel elle fonce durant quelques secondes
 
+### Boule de feu
+
+- Est placé hors de l'écran par défaut.
+- Monte à une certaine hauteur (fixe).
+- Puis redescend hors de l'écran.
+- Puis recommence.
+- Tue si on le touche.
+
 
 ## Plateformes
 
