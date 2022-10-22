@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d3a8ix3a4x7ew"]
+[gd_scene load_steps=18 format=3 uid="uid://d3a8ix3a4x7ew"]
 
 [ext_resource type="PackedScene" uid="uid://biajlk6f84745" path="res://src/Tiles.tscn" id="1_6xxgk"]
 [ext_resource type="PackedScene" uid="uid://bxo8l2jkxny1t" path="res://src/Player.tscn" id="2_cer1g"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cmtqborvhjkhc" path="res://src/Enemies/Fireball.tscn" id="14_vtwaj"]
 [ext_resource type="PackedScene" uid="uid://42eefgbk72c4" path="res://src/Items/Boost.tscn" id="15_nf1ta"]
 [ext_resource type="PackedScene" uid="uid://csjovr836mnha" path="res://src/Items/Coin.tscn" id="16_wq47q"]
+[ext_resource type="PackedScene" uid="uid://dy32lcdr3t117" path="res://src/Generator/VerticalPlatformGenerator.tscn" id="17_2e4b5"]
 
 [node name="Level1" type="Node2D"]
 
@@ -80,3 +81,6 @@ position = Vector2(96, 185)
 
 [node name="Coin3" parent="." instance=ExtResource("16_wq47q")]
 position = Vector2(120, 185)
+
+[node name="VerticalPlatformGenerator" parent="." instance=ExtResource("17_2e4b5")]
+position = Vector2(408, -16)

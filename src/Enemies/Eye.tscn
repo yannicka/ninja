@@ -67,6 +67,8 @@ _data = {
 script = ExtResource("1_l4aqx")
 
 [node name="CharacterBody2d" type="CharacterBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="CharacterBody2d"]
 frames = SubResource("SpriteFrames_nve8d")
