@@ -109,4 +109,4 @@ func _on_animation_player_animation_finished(anim_name):
 func boost():
 	boost_mode = true
 
-	$GPUParticles2D.visible = true
+	$GPUParticles2D.restart()
