@@ -69,4 +69,4 @@ position = Vector2(142, 114)
 position = Vector2(408, 272)
 
 [node name="Boost" parent="." instance=ExtResource("15_nf1ta")]
-position = Vector2(96, 176)
+position = Vector2(126, 177)

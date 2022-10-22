@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 160.0
+const RUN_SPEED = 160.0
+const BOOST_SPEED = 260.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -14,7 +15,7 @@ var state = "idle"
 
 @export var move = false
 
-var boost_mode = false
+var speed = RUN_SPEED
 
 func _physics_process(delta):
 	if is_dead:
@@ -55,9 +56,9 @@ func _physics_process(delta):
 			move = false
 
 	if move:
-		velocity.x = direction.x * SPEED
+		velocity.x = direction.x * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	if velocity.y > 0:
 		state = "fall"
@@ -107,6 +108,17 @@ func _on_animation_player_animation_finished(anim_name):
 		TransitionScene.change_scene("res://src/Scenes/Game.tscn")
 
 func boost():
-	boost_mode = true
+	speed = BOOST_SPEED
 
-	$GPUParticles2D.restart()
+	$GPUParticles2D.visible = true
+
+	var timer = Timer.new()
+	timer.connect("timeout", unboost)
+	timer.wait_time = 7
+	add_child(timer)
+	timer.start()
+
+func unboost():
+	speed = RUN_SPEED
+
+	$GPUParticles2D.visible = false

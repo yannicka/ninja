@@ -105,8 +105,8 @@ limit_top = 0
 limit_bottom = 256
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
 material = SubResource("CanvasItemMaterial_ghe24")
-emitting = false
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_2onol")
 texture = ExtResource("2_6ojfv")
