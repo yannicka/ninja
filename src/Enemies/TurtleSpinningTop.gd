@@ -25,5 +25,7 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	if age > 0.05 and body.has_method("die_or_bounce"):
-		body.die_or_bounce()
-		queue_free()
+		var die_or_bounce = body.die_or_bounce()
+
+		if die_or_bounce == "bounce":
+			queue_free()

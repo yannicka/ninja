@@ -22,11 +22,12 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("die_or_bounce"):
-		body.die_or_bounce()
+		var die_or_bounce = body.die_or_bounce()
 
-		var turtleSpinningTop = TurtleSpinningTop.instantiate()
-		turtleSpinningTop.direction = Vector2(-direction.x, direction.y)
-		turtleSpinningTop.global_position = Vector2(self.global_position.x, self.global_position.y)
-		get_tree().current_scene.add_child(turtleSpinningTop)
+		if die_or_bounce == "bounce":
+			var turtleSpinningTop = TurtleSpinningTop.instantiate()
+			turtleSpinningTop.direction = Vector2(-direction.x, direction.y)
+			turtleSpinningTop.global_position = Vector2(self.global_position.x, self.global_position.y)
+			get_tree().current_scene.add_child(turtleSpinningTop)
 
-		queue_free()
+			queue_free()

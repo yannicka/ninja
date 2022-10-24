@@ -100,8 +100,12 @@ func die():
 func die_or_bounce():
 	if state == "fall":
 		bounce()
+
+		return "bounce"
 	else:
 		die()
+
+		return "die"
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "die":
