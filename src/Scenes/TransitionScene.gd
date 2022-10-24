@@ -8,3 +8,4 @@ func change_scene(_new_scene: String):
 	await $AnimationPlayer.animation_finished
 	get_tree().change_scene_to_file(new_scene)
 	$AnimationPlayer.play("black_to_transparent")
+	get_tree().paused = false

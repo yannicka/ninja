@@ -97,6 +97,8 @@ func die():
 	$AnimationPlayer.play("die")
 	$CollisionShape2d.disabled = true
 
+	get_tree().paused = true
+
 func die_or_bounce():
 	if state == "fall":
 		bounce()
