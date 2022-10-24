@@ -8,10 +8,10 @@ const RADIUS = 25
 
 var center_position = Vector2.ZERO
 
-func _ready():
+func _ready() -> void:
 	center_position = Vector2(position)
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	rotation += ROTATE_SPEED * delta
 
 	angle += TURN_SPEED * delta
