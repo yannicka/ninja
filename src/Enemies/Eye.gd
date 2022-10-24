@@ -1,6 +1,6 @@
 extends Node2D
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("die_or_bounce"):
 		var die_or_bounce = body.die_or_bounce()
 
