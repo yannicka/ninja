@@ -1,11 +1,12 @@
 extends StaticBody2D
 
 const ROTATE_SPEED = -3 # radians/second
-const TURN_SPEED = 1
-const RADIUS = 26
+const TURN_SPEED = 1.4
+const RADIUS = 25
+
+@export var angle = 0
 
 var center_position = Vector2.ZERO
-var angle = 0
 
 func _ready():
 	center_position = Vector2(position)
@@ -13,7 +14,7 @@ func _ready():
 func _physics_process(delta):
 	rotation += ROTATE_SPEED * delta
 
-	angle += TURN_SPEED * delta;
+	angle += TURN_SPEED * delta
 
 	var offset = Vector2(sin(angle), cos(angle)) * RADIUS
 
