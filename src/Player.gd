@@ -95,7 +95,6 @@ func die():
 	velocity = Vector2(0, 0)
 
 	$AnimationPlayer.play("die")
-	$CollisionShape2d.disabled = true
 
 	get_tree().paused = true
 
