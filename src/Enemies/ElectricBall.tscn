@@ -29,7 +29,7 @@ radius = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_sk55k"]
 radius = 4.12311
 
-[node name="ElectricBall" type="CharacterBody2D"]
+[node name="ElectricBall" type="StaticBody2D"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_8h5bv")
