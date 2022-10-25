@@ -1,7 +1,4 @@
 extends CharacterBody2D
 
-func _process(delta):
-	pass
-
-func fall(delta: float):
+func fall(delta: float) -> void:
 	position.y += 26 * delta

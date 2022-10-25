@@ -1,6 +1,6 @@
 extends Node2D
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		var viewport_size = get_viewport_rect().size
 		var half_viewport_width = viewport_size.x / 2

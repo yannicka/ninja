@@ -31,7 +31,7 @@ position = Vector2(32, 200)
 position = Vector2(200, 168)
 
 [node name="ElectricBall" parent="." instance=ExtResource("4_qlfl8")]
-position = Vector2(256, 32)
+position = Vector2(104, 120)
 
 [node name="Ramper" parent="." instance=ExtResource("5_ggxgq")]
 position = Vector2(160, 200)

@@ -1,15 +1,16 @@
 extends AnimatableBody2D
 
-var speed = 20
-var nextDirection = Vector2.RIGHT
-var direction = Vector2.ZERO
+const speed = 20
 
-func _process(delta: float):
+var direction = Vector2.ZERO
+var nextDirection = Vector2.RIGHT
+
+func _process(delta: float) -> void:
 	var velocity = Vector2(speed * direction.x * delta, 0)
 	var collision = move_and_collide(velocity)
 
 	if collision:
 		nextDirection.x = -nextDirection.x
 
-func advance(delta: float):
+func advance(_delta: float) -> void:
 	direction.x = nextDirection.x

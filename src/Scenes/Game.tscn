@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://j05twmx0bxdi" path="res://assets/coin.png" id="3_vur6n"]
 
 [sub_resource type="Gradient" id="Gradient_6ifhi"]
-colors = PackedColorArray(0.585062, 0.585062, 0.585062, 1, 0.942823, 0.942823, 0.942823, 1)
+colors = PackedColorArray(0.468168, 0.613746, 0.653906, 1, 0.965153, 0.949232, 0.826867, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_j3wdl"]
 gradient = SubResource("Gradient_6ifhi")
