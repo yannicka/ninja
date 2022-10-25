@@ -18,7 +18,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rr16m"]
 size = Vector2(16, 16)
 
-[node name="ArrowShotter" type="StaticBody2D"]
+[node name="ArrowShooter" type="StaticBody2D"]
 collision_layer = 16
 script = ExtResource("1_7omhe")
 
