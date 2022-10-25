@@ -11,7 +11,7 @@ region = Rect2(0, 160, 16, 16)
 animations = [{
 "frames": [SubResource("AtlasTexture_wtov7")],
 "loop": true,
-"name": &"default",
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -28,6 +28,7 @@ script = ExtResource("1_htvwi")
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_nr2fk")
+animation = &"walk"
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)

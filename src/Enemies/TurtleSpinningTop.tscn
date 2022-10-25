@@ -32,7 +32,7 @@ script = ExtResource("1_l3r16")
 frames = SubResource("SpriteFrames_nr2fk")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_olmhk")
 
@@ -40,7 +40,7 @@ shape = SubResource("CapsuleShape2D_olmhk")
 collision_layer = 2
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
-position = Vector2(0, 4)
+position = Vector2(0, 5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_iotkq")
 

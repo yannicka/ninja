@@ -1,19 +1,19 @@
 extends CharacterBody2D
 
 const SPEED = 70
+const GRAVITY = 500
 
-@export var direction = Vector2.RIGHT
-
+var direction = Vector2.RIGHT
 var age = 0
 
 func _ready():
+	scale.x = direction.x
 	velocity.x = SPEED * direction.x
 
 func _physics_process(delta):
-	move_and_slide()
-
 	if not is_on_floor():
-		velocity.y += 120 * delta
+		velocity.y += GRAVITY * delta
+		velocity.y = min(velocity.y, GRAVITY)
 
 	if is_on_wall():
 		direction = -direction
@@ -22,6 +22,8 @@ func _physics_process(delta):
 		scale.x = -1
 
 	age += delta
+
+	move_and_slide()
 
 func _on_area_2d_body_entered(body):
 	if age > 0.05 and body.has_method("die_or_bounce"):

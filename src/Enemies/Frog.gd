@@ -8,8 +8,7 @@ const GRAVITY = 500
 var direction = Vector2.LEFT
 
 func _ready() -> void:
-	if direction.x == -1:
-		scale.x = -1
+	scale.x = direction.x
 
 	var timer = Timer.new()
 	timer.connect("timeout", on_timer_timeout)

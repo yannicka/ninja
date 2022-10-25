@@ -1,18 +1,20 @@
 extends CharacterBody2D
 
 const TurtleSpinningTop = preload("res://src/Enemies/TurtleSpinningTop.tscn")
-const SPEED = 20
 
-var direction = Vector2.RIGHT
+const SPEED = 18
+const GRAVITY = 500
 
-func _ready():
-	velocity.x = SPEED
+@export var direction = Vector2.RIGHT
 
-func _physics_process(delta):
-	move_and_slide()
+func _ready() -> void:
+	scale.x = direction.x
+	velocity.x = SPEED * direction.x
 
+func _physics_process(delta: float) -> void:
 	if not is_on_floor():
-		velocity.y += 120 * delta
+		velocity.y += GRAVITY * delta
+		velocity.y = min(velocity.y, GRAVITY)
 
 	if is_on_wall():
 		direction = -direction
@@ -20,7 +22,9 @@ func _physics_process(delta):
 
 		scale.x = -1
 
-func _on_area_2d_body_entered(body):
+	move_and_slide()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("die_or_bounce"):
 		var die_or_bounce = body.die_or_bounce()
 

@@ -6,10 +6,8 @@ const GRAVITY = 500
 @export var direction = Vector2.RIGHT
 
 func _ready() -> void:
+	scale.x = direction.x
 	velocity.x = SPEED * direction.x
-
-	if direction.x == -1:
-		scale.x = -1
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
