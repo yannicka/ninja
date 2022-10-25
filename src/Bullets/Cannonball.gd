@@ -1,13 +1,23 @@
+class_name Cannonball
+
 extends CharacterBody2D
 
-func _ready():
-	velocity.y = -200
+const ROTATE_SPEED = 12 # radians/second
+const SHOOTING_SPEED = -320
+const GRAVITY = 520
 
-func _physics_process(delta):
-	velocity.y += 140 * delta
+var shooter = null
+
+func _ready() -> void:
+	velocity.y = SHOOTING_SPEED
+
+func _physics_process(delta: float) -> void:
+	rotation += ROTATE_SPEED * delta
+	velocity.y += GRAVITY * delta
+
 	move_and_slide()
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("die"):
 		body.die()
 		queue_free()
