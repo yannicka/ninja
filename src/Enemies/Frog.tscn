@@ -25,12 +25,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_650dm"]
-radius = 5.0
-height = 10.0
+radius = 4.0
+height = 8.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4g7kd"]
-radius = 5.0
-height = 10.0
+radius = 4.0
+height = 8.0
 
 [node name="Frog" type="CharacterBody2D"]
 collision_layer = 2
@@ -44,14 +44,14 @@ animation = &"wait"
 playing = true
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_650dm")
 
 [node name="Area2d" type="Area2D" parent="."]
 collision_layer = 2
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
-position = Vector2(1, 0)
+position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_4g7kd")
 
 [connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]
