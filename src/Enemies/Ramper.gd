@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 22
+const SPEED = 18
 const GRAVITY = 500
 
 @export var direction = Vector2.RIGHT

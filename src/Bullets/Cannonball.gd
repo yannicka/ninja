@@ -3,8 +3,8 @@ class_name Cannonball
 extends CharacterBody2D
 
 const ROTATE_SPEED = 12 # radians/second
-const SHOOTING_SPEED = -320
-const GRAVITY = 520
+const SHOOTING_SPEED = -360
+const GRAVITY = 700
 
 var shooter = null
 

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const CannonballScene = preload("res://src/Bullets/Cannonball.tscn")
 
-const SPEED = 22
+const SPEED = 18
 const GRAVITY = 500
 
 @export var direction = Vector2.RIGHT
@@ -14,7 +14,7 @@ func _ready() -> void:
 	scale.x = direction.x
 	velocity.x = SPEED * direction.x
 
-	timer_before_prepare_shot.wait_time = 4
+	timer_before_prepare_shot.wait_time = 2.6
 	timer_before_prepare_shot.connect("timeout", on_timer_before_prepare_shot_timeout)
 	add_child(timer_before_prepare_shot)
 	timer_before_prepare_shot.start()
