@@ -60,7 +60,7 @@ func on_timer_before_shot_timeout() -> void:
 	timer_before_shot.stop()
 
 func _on_shooter_area_2d_body_entered(body: Node2D) -> void:
-	if body is Cannonball and body.velocity.y >= 0:
+	if body is Cannonball and body.shooter == self and body.velocity.y >= 0:
 		body.queue_free()
 
 		$AnimatedSprite2d.play("walk")
