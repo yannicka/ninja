@@ -5,7 +5,7 @@ const speed = 20
 var direction = Vector2.ZERO
 var nextDirection = Vector2.RIGHT
 
-func _process(delta: float) -> void:
+func _physics_process(delta):
 	var velocity = Vector2(speed * direction.x * delta, 0)
 	var collision = move_and_collide(velocity)
 
