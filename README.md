@@ -104,3 +104,7 @@
 ### Ressort
 
 - Fait changer le joueur de direction.
+
+## Bogues connus
+
+- La grenouille n'avance pas dans la direction du joueur si elle saute en étant collé à un muret.
