@@ -6,13 +6,9 @@ const JUMP_VELOCITY = -400.0
 const GRAVITY = 980
 
 var direction = Vector2.RIGHT
-
 var is_dead = false
-
 var state = "idle"
-
-@export var move = false
-
+var move = false
 var speed = RUN_SPEED
 
 func _physics_process(delta):
@@ -38,20 +34,21 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_up"):
 		jump()
 
-	if move or Input.is_action_pressed("space"):
-		move = true
-	else:
-		move = false
-
-	if OS.is_debug_build():
-		if Input.is_action_pressed("ui_left"):
-			direction = Vector2.LEFT
-			move = true
-		elif Input.is_action_pressed("ui_right"):
-			direction = Vector2.RIGHT
+	if not OS.has_feature("mobile"):
+		if Input.is_action_pressed("space"):
 			move = true
 		else:
 			move = false
+
+		if OS.is_debug_build():
+			if Input.is_action_pressed("ui_left"):
+				direction = Vector2.LEFT
+				move = true
+			elif Input.is_action_pressed("ui_right"):
+				direction = Vector2.RIGHT
+				move = true
+			else:
+				move = false
 
 	if move:
 		velocity.x = direction.x * speed
