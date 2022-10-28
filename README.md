@@ -108,3 +108,4 @@
 ## Bogues connus
 
 - La grenouille n'avance pas dans la direction du joueur si elle saute en étant collé à un muret.
+- Cogner le crâne d'un ennemi pendant qu'on descend, non pas par la gravité, mais par une plateforme, cause notre mort plutôt que celle de l'ennemi.
