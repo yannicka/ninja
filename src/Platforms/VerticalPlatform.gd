@@ -1,6 +1,11 @@
 extends AnimatableBody2D
 
-var velocity = Vector2(0, 20)
+const VELOCITY = Vector2(0, 20)
 
-func _process(delta: float) -> void:
-	move_and_collide(velocity * delta)
+func _physics_process(delta: float) -> void:
+	move_and_collide(VELOCITY * delta)
+
+# Bouge la plateforme à la position à laquelle elle serait si elle s'était
+# déplacée pendant `seconds` secondes.
+func move(seconds: float) -> void:
+	position += VELOCITY * seconds
