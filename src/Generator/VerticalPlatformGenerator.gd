@@ -14,7 +14,7 @@ func _ready() -> void:
 	add_child(timer)
 	timer.start()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !has_done_initial_generation:
 		var nb_to_generate = 20
 
