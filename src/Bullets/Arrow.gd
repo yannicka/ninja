@@ -5,11 +5,11 @@ const SPEED = 50
 
 @export var direction = Vector2.RIGHT
 
+var deadly = false
+
 func _ready() -> void:
 	scale.x = direction.x
 	velocity.x = INITIAL_SPEED * direction.x
-
-	$Area2D/CollisionShape2d.disabled = true
 
 	var timer = Timer.new()
 	timer.connect("timeout", on_start)
@@ -19,6 +19,8 @@ func _ready() -> void:
 
 func on_start() -> void:
 	velocity.x = SPEED * direction.x
+
+	deadly = true
 
 	$Area2D/CollisionShape2d.disabled = false
 	$AnimatedSprite2d.play("launched")
@@ -34,13 +36,15 @@ func on_remove() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if is_on_wall():
+		deadly = false
+
 		$AnimatedSprite2d.play("stop")
 
 	move_and_slide()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("die_or_bounce"):
-		var die_or_bounce = body.die_or_bounce()
+		var die_or_bounce = body.die_or_bounce(deadly)
 
 		if die_or_bounce == "bounce":
 			queue_free()

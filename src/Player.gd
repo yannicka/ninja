@@ -96,15 +96,18 @@ func die():
 
 	get_tree().paused = true
 
-func die_or_bounce():
+func die_or_bounce(deadly: bool = true):
 	if state == "fall":
 		bounce()
 
 		return "bounce"
 	else:
-		die()
+		if deadly:
+			die()
 
-		return "die"
+			return "die"
+
+	return "nothing"
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "die":
