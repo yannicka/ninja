@@ -1,3 +1,7 @@
+# Ninja
+
+Jeu sous licence AGPLv3+ (voir fichier `LICENSE.txt`).
+
 ## Ennemis et projectiles
 
 ### Commun
