@@ -30,6 +30,24 @@ func _physics_process(delta: float) -> void:
 		if collision.get_collider().has_method("advance"):
 			collision.get_collider().advance(delta)
 
+	if not OS.has_feature("mobile"):
+		if OS.is_debug_build():
+			if Input.is_action_pressed("ui_left"):
+				direction = Vector2.LEFT
+				move = true
+			elif Input.is_action_pressed("ui_right"):
+				direction = Vector2.RIGHT
+				move = true
+
+			if Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
+				move = false
+
+	if Input.is_action_pressed("space"):
+		move = true
+
+	if Input.is_action_just_released("space"):
+		move = false
+
 	if Input.is_action_just_pressed("ui_up"):
 		jumping = true
 
@@ -42,21 +60,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and jumping:
 		velocity.y = JUMP_VELOCITY
 
-	if not OS.has_feature("mobile"):
-		if Input.is_action_pressed("space"):
-			jumping = true
-		else:
-			jumping = false
-
-		if OS.is_debug_build():
-			if Input.is_action_pressed("ui_left"):
-				direction = Vector2.LEFT
-				move = true
-			elif Input.is_action_pressed("ui_right"):
-				direction = Vector2.RIGHT
-				move = true
-			else:
-				move = false
+		state = "jump"
 
 	if move:
 		velocity.x = direction.x * speed
