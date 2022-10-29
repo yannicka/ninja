@@ -1,17 +1,19 @@
 extends CharacterBody2D
 
-const RUN_SPEED = 160.0
-const BOOST_SPEED = 260.0
-const JUMP_VELOCITY = -400.0
-const GRAVITY = 980
+const RUN_SPEED = 200
+const BOOST_SPEED = 320
+const JUMP_VELOCITY = -470
+const GRAVITY = 2000
 
 var direction = Vector2.RIGHT
 var is_dead = false
 var state = "idle"
-var move = false
 var speed = RUN_SPEED
 
-func _physics_process(delta):
+var move = false
+var jumping = false
+
+func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
 
@@ -28,17 +30,23 @@ func _physics_process(delta):
 		if collision.get_collider().has_method("advance"):
 			collision.get_collider().advance(delta)
 
+	if Input.is_action_just_pressed("ui_up"):
+		jumping = true
+
+	if Input.is_action_just_released("ui_up"):
+		jumping = false
+
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 
-	if Input.is_action_just_pressed("ui_up"):
-		jump()
+	if is_on_floor() and jumping:
+		velocity.y = JUMP_VELOCITY
 
 	if not OS.has_feature("mobile"):
 		if Input.is_action_pressed("space"):
-			move = true
+			jumping = true
 		else:
-			move = false
+			jumping = false
 
 		if OS.is_debug_build():
 			if Input.is_action_pressed("ui_left"):
@@ -70,11 +78,6 @@ func _physics_process(delta):
 			$AnimatedSprite.play("idle")
 	else:
 		$AnimatedSprite.play("jump")
-
-func jump():
-	if is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		state = "jump"
 
 func set_direction(direction: Vector2) -> void:
 	if direction != self.direction:

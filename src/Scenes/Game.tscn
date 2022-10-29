@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bd6u04topve1x"]
 
 [ext_resource type="Script" path="res://src/Scenes/Game.gd" id="1_knod3"]
-[ext_resource type="PackedScene" uid="uid://d3a8ix3a4x7ew" path="res://src/Levels/Level1.tscn" id="2_6r4p8"]
+[ext_resource type="PackedScene" uid="uid://d3a8ix3a4x7ew" path="res://src/Levels/Level1.tscn" id="2_0q248"]
 [ext_resource type="Texture2D" uid="uid://j05twmx0bxdi" path="res://assets/coin.png" id="3_vur6n"]
 
 [sub_resource type="Gradient" id="Gradient_6ifhi"]
@@ -13,10 +13,10 @@ width = 512
 height = 256
 fill_to = Vector2(0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oivl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnybv"]
 size = Vector2(256, 256)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjm7o"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahnrn"]
 size = Vector2(256, 256)
 
 [node name="Game" type="Node2D"]
@@ -29,21 +29,7 @@ layer = -1
 texture = SubResource("GradientTexture2D_j3wdl")
 polygon = PackedVector2Array(0, 0, 512, 0, 512, 256, 0, 256)
 
-[node name="Level1" parent="." instance=ExtResource("2_6r4p8")]
-
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
-
-[node name="MoveArea" type="Area2D" parent="CanvasLayer3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer3/MoveArea"]
-position = Vector2(128, 128)
-shape = SubResource("RectangleShape2D_4oivl")
-
-[node name="JumpArea" type="Area2D" parent="CanvasLayer3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer3/JumpArea"]
-position = Vector2(384, 128)
-shape = SubResource("RectangleShape2D_wjm7o")
+[node name="Level" parent="." instance=ExtResource("2_0q248")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -103,5 +89,17 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 11
 text = "2:45"
 
-[connection signal="input_event" from="CanvasLayer3/MoveArea" to="." method="_on_move_area_input_event"]
-[connection signal="input_event" from="CanvasLayer3/JumpArea" to="." method="_on_jump_area_input_event"]
+[node name="CanvasLayer5" type="CanvasLayer" parent="."]
+
+[node name="MoveButton" type="TouchScreenButton" parent="CanvasLayer5"]
+position = Vector2(128, 128)
+shape = SubResource("RectangleShape2D_qnybv")
+
+[node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer5"]
+position = Vector2(384, 128)
+shape = SubResource("RectangleShape2D_ahnrn")
+
+[connection signal="pressed" from="CanvasLayer5/MoveButton" to="." method="_on_move_button_pressed"]
+[connection signal="released" from="CanvasLayer5/MoveButton" to="." method="_on_move_button_released"]
+[connection signal="pressed" from="CanvasLayer5/JumpButton" to="." method="_on_jump_button_pressed"]
+[connection signal="released" from="CanvasLayer5/JumpButton" to="." method="_on_jump_button_released"]
