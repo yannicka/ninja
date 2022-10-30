@@ -19,7 +19,9 @@ func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
 
-	if position.y > 300:
+	var viewport_height = get_viewport_rect().size.y
+
+	if global_position.y > viewport_height + 24:
 		die()
 		return
 
