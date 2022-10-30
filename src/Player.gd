@@ -13,6 +13,8 @@ var speed = RUN_SPEED
 var move = false
 var jumping = false
 
+var collected_coins = 0
+
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
@@ -134,3 +136,6 @@ func unboost():
 
 	if not OS.has_feature("mobile"):
 		$GPUParticles2D.visible = false
+
+func add_collected_coin():
+	get_tree().current_scene.add_collected_coin()

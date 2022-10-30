@@ -1,6 +1,7 @@
 extends Node2D
 
 var seconds_elapsed = 0
+var collected_coins = 0
 
 func _ready() -> void:
 	var timer = Timer.new()
@@ -40,3 +41,8 @@ func format_time(seconds: float) -> String:
 	var _seconds = fmod(seconds, 60)
 
 	return "%02d:%02d" % [minutes, _seconds]
+
+func add_collected_coin():
+	collected_coins += 1
+
+	$CanvasLayer/HBoxContainer/MarginContainer2/Label.set_text(str(collected_coins))
