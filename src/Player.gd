@@ -90,7 +90,7 @@ func set_direction(direction: Vector2) -> void:
 		scale.x = -1
 
 func bounce():
-	velocity.y = -300
+	velocity.y = -400
 
 func die():
 	is_dead = true
