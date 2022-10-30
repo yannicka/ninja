@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://j05twmx0bxdi" path="res://assets/coin.png" id="3_vur6n"]
 
 [sub_resource type="Gradient" id="Gradient_6ifhi"]
-colors = PackedColorArray(0.468168, 0.613746, 0.653906, 1, 0.965153, 0.949232, 0.826867, 1)
+offsets = PackedFloat32Array(0, 0.995146)
+colors = PackedColorArray(0.894118, 0.847059, 0.756863, 1, 0.835294, 0.772549, 0.647059, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_j3wdl"]
 gradient = SubResource("Gradient_6ifhi")
@@ -40,12 +41,14 @@ offset_bottom = 19.0
 grow_horizontal = 2
 
 [node name="MarginContainer1" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
 offset_right = 15.0
 offset_bottom = 19.0
 size_flags_horizontal = 2
 theme_override_constants/margin_left = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer1"]
+layout_mode = 2
 offset_left = 2.0
 offset_right = 15.0
 offset_bottom = 19.0
@@ -55,6 +58,7 @@ theme_override_font_sizes/font_size = 11
 text = "||"
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
 offset_left = 251.0
 offset_right = 260.0
 offset_bottom = 19.0
@@ -66,6 +70,7 @@ position = Vector2(19, 9)
 texture = ExtResource("3_vur6n")
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
 offset_left = 2.0
 offset_right = 9.0
 offset_bottom = 19.0
@@ -75,19 +80,21 @@ theme_override_font_sizes/font_size = 11
 text = "5"
 
 [node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
-offset_left = 488.0
+layout_mode = 2
+offset_left = 481.0
 offset_right = 512.0
 offset_bottom = 19.0
 size_flags_horizontal = 10
 theme_override_constants/margin_right = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer3"]
-offset_right = 22.0
+layout_mode = 2
+offset_right = 29.0
 offset_bottom = 19.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 11
-text = "2:45"
+text = "00:00"
 
 [node name="CanvasLayer5" type="CanvasLayer" parent="."]
 

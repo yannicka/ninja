@@ -1,5 +1,17 @@
 extends Node2D
 
+var seconds_elapsed = 0
+
+func _ready() -> void:
+	var timer = Timer.new()
+	timer.connect("timeout", func():
+		seconds_elapsed += 1
+		$CanvasLayer/HBoxContainer/MarginContainer3/Label.set_text(format_time(seconds_elapsed))
+	)
+	timer.wait_time = 1
+	add_child(timer)
+	timer.start()
+
 # var i = 0
 #
 # func _physics_process(delta: float) -> void:
@@ -22,3 +34,9 @@ func _on_jump_button_pressed():
 
 func _on_jump_button_released():
 	$Level/Player.jumping = false
+
+func format_time(seconds: float) -> String:
+	var minutes = seconds / 60
+	var _seconds = fmod(seconds, 60)
+
+	return "%02d:%02d" % [minutes, _seconds]
