@@ -120,7 +120,8 @@ func _on_animation_player_animation_finished(anim_name):
 func boost():
 	speed = BOOST_SPEED
 
-	$GPUParticles2D.visible = true
+	if not OS.has_feature("mobile"):
+		$GPUParticles2D.visible = true
 
 	var timer = Timer.new()
 	timer.connect("timeout", unboost)
@@ -131,4 +132,5 @@ func boost():
 func unboost():
 	speed = RUN_SPEED
 
-	$GPUParticles2D.visible = false
+	if not OS.has_feature("mobile"):
+		$GPUParticles2D.visible = false
