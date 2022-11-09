@@ -12,7 +12,7 @@ _global_script_classes=[{
 "base": "CharacterBody2D",
 "class": &"Cannonball",
 "language": &"GDScript",
-"path": "res://src/Bullets/Cannonball.gd"
+"path": "res://src/bullets/cannonball.gd"
 }]
 _global_script_class_icons={
 "Cannonball": ""
@@ -21,14 +21,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Ninja"
-run/main_scene="res://src/Scenes/MainMenu.tscn"
+run/main_scene="res://src/scenes/main_menu.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/image="res://assets/splash.png"
 config/icon="res://icon.svg"
 
 [autoload]
 
-TransitionScene="*res://src/Scenes/TransitionScene.tscn"
+TransitionScene="*res://src/scenes/transition_scene.tscn"
 
 [display]
 

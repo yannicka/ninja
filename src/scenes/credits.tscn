@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://6ifmtwhdwj7h"]
+
+[ext_resource type="Script" path="res://src/scenes/credits.gd" id="1_dmmgt"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_dmmgt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192157, 0.160784, 0.137255, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 502.0
+offset_bottom = 246.0
+bbcode_enabled = true
+text = "[b]Crédits[/b]
+Yannick A. « Pif » : idée, code, graphisme.
+
+[b]Remerciements[/b]
+Merci à [...]
+
+[b]Code source[/b]
+Code source sous licence libre AGPLv3+.
+[url]https://gitlab.com/yannicka/ninja[/url]"
+
+[node name="BackButton" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -61.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Retour"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

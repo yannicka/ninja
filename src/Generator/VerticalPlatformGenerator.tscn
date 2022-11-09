@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy32lcdr3t117"]
-
-[ext_resource type="Script" path="res://src/Generator/VerticalPlatformGenerator.gd" id="1_a4hoo"]
-
-[node name="VerticalPlatformGenerator" type="Node2D"]
-script = ExtResource("1_a4hoo")

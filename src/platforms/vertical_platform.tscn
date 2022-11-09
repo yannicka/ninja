@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ba1c5gnfe075a"]
+
+[ext_resource type="Script" path="res://src/platforms/vertical_platform.gd" id="1_0xvga"]
+[ext_resource type="Texture2D" uid="uid://c1v422dxujuhh" path="res://assets/platforms.png" id="1_3itga"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3dwf"]
+atlas = ExtResource("1_3itga")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fl4k4"]
+animations = [{
+"frames": [SubResource("AtlasTexture_q3dwf")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88o6k"]
+size = Vector2(25, 4)
+
+[node name="VerticalPlatform" type="AnimatableBody2D"]
+collision_layer = 32
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("1_0xvga")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_fl4k4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_88o6k")
+one_way_collision = true
