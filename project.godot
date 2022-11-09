@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Ninja"
-run/main_scene="res://src/Scenes/Game.tscn"
+run/main_scene="res://src/Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/image="res://assets/splash.png"
 config/icon="res://icon.svg"
