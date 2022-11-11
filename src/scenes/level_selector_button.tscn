@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy5lkm4010csn"]
+
+[ext_resource type="Texture2D" uid="uid://j05twmx0bxdi" path="res://assets/coin.png" id="1_in53n"]
+[ext_resource type="Script" path="res://src/scenes/level_selector_button.gd" id="1_k1hun"]
+
+[node name="Button" type="Button"]
+offset_right = 18.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1
+"
+script = ExtResource("1_k1hun")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 29)
+texture = ExtResource("1_in53n")
