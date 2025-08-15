@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://3cibg3piik6p"]
 
-[ext_resource type="Script" path="res://src/platforms/falling_platform.gd" id="1_sapr0"]
+[ext_resource type="Script" uid="uid://cdw3i8tpg2jdj" path="res://src/platforms/falling_platform.gd" id="1_sapr0"]
 [ext_resource type="Texture2D" uid="uid://c1v422dxujuhh" path="res://assets/platforms.png" id="1_u2bt8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l1d1k"]
@@ -9,7 +9,10 @@ region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dc0tb"]
 animations = [{
-"frames": [SubResource("AtlasTexture_l1d1k")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1d1k")
+}],
 "loop": true,
 "name": &"default",
 "speed": 5.0

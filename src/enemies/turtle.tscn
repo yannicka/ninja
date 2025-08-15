@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cm7hj4po42t37"]
 
-[ext_resource type="Script" path="res://src/enemies/turtle.gd" id="1_htvwi"]
+[ext_resource type="Script" uid="uid://b0g8hy7gioa" path="res://src/enemies/turtle.gd" id="1_htvwi"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_tk04q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtov7"]
@@ -9,7 +9,10 @@ region = Rect2(0, 160, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nr2fk"]
 animations = [{
-"frames": [SubResource("AtlasTexture_wtov7")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtov7")
+}],
 "loop": true,
 "name": &"walk",
 "speed": 5.0

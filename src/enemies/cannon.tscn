@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bersa8l0ueg37"]
 
-[ext_resource type="Script" path="res://src/enemies/cannon.gd" id="1_0eypk"]
+[ext_resource type="Script" uid="uid://dsrtjlb8sqmm5" path="res://src/enemies/cannon.gd" id="1_0eypk"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_bajk2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jp6c6"]
@@ -17,12 +17,21 @@ region = Rect2(0, 80, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8p4d7"]
 animations = [{
-"frames": [SubResource("AtlasTexture_jp6c6")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp6c6")
+}],
 "loop": true,
 "name": &"shot",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_bu6fi"), SubResource("AtlasTexture_iel6a")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu6fi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iel6a")
+}],
 "loop": true,
 "name": &"walk",
 "speed": 6.0

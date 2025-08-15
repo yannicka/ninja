@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cujtu2lbvi2br"]
 
-[ext_resource type="Script" path="res://src/enemies/eye.gd" id="1_l4aqx"]
+[ext_resource type="Script" uid="uid://c0gy3xnij1py" path="res://src/enemies/eye.gd" id="1_l4aqx"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_u6mxy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sjkt5"]
@@ -13,7 +13,13 @@ region = Rect2(16, 144, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nve8d"]
 animations = [{
-"frames": [SubResource("AtlasTexture_sjkt5"), SubResource("AtlasTexture_gedeg")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjkt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gedeg")
+}],
 "loop": true,
 "name": &"fly",
 "speed": 8.0
@@ -59,8 +65,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u7tpu"]
 _data = {
-"RESET": SubResource("Animation_jojc4"),
-"fly": SubResource("Animation_1tmjw")
+&"RESET": SubResource("Animation_jojc4"),
+&"fly": SubResource("Animation_1tmjw")
 }
 
 [node name="Eye" type="Node2D"]

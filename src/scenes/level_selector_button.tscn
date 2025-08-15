@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cy5lkm4010csn"]
 
 [ext_resource type="Texture2D" uid="uid://j05twmx0bxdi" path="res://assets/coin.png" id="1_in53n"]
-[ext_resource type="Script" path="res://src/scenes/level_selector_button.gd" id="1_k1hun"]
+[ext_resource type="Script" uid="uid://1jyo8efj18vd" path="res://src/scenes/level_selector_button.gd" id="1_k1hun"]
 
 [node name="Button" type="Button"]
 offset_right = 18.0

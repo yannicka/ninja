@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://btytxh5enri0e"]
 
-[ext_resource type="Script" path="res://src/enemies/frog.gd" id="1_fqcre"]
+[ext_resource type="Script" uid="uid://l1oqxuojum5s" path="res://src/enemies/frog.gd" id="1_fqcre"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="2_k51c0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0nkd8"]
@@ -13,12 +13,18 @@ region = Rect2(0, 112, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6s1dl"]
 animations = [{
-"frames": [SubResource("AtlasTexture_0nkd8")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nkd8")
+}],
 "loop": true,
 "name": &"jump",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_epnwf")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epnwf")
+}],
 "loop": true,
 "name": &"wait",
 "speed": 5.0

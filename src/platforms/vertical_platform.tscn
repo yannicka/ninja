@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ba1c5gnfe075a"]
 
-[ext_resource type="Script" path="res://src/platforms/vertical_platform.gd" id="1_0xvga"]
+[ext_resource type="Script" uid="uid://syb5kek8dnwn" path="res://src/platforms/vertical_platform.gd" id="1_0xvga"]
 [ext_resource type="Texture2D" uid="uid://c1v422dxujuhh" path="res://assets/platforms.png" id="1_3itga"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3dwf"]
@@ -9,7 +9,10 @@ region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fl4k4"]
 animations = [{
-"frames": [SubResource("AtlasTexture_q3dwf")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3dwf")
+}],
 "loop": true,
 "name": &"default",
 "speed": 5.0

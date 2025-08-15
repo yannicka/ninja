@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ck8lr0bih6ryo"]
 
-[ext_resource type="Script" path="res://src/platforms/moving_platform.gd" id="1_makkr"]
+[ext_resource type="Script" uid="uid://cp7fiv7owdisi" path="res://src/platforms/moving_platform.gd" id="1_makkr"]
 [ext_resource type="Texture2D" uid="uid://c1v422dxujuhh" path="res://assets/platforms.png" id="1_wiyqm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_veuxe"]
@@ -9,7 +9,10 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qmutl"]
 animations = [{
-"frames": [SubResource("AtlasTexture_veuxe")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veuxe")
+}],
 "loop": true,
 "name": &"default",
 "speed": 5.0

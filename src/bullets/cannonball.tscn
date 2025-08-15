@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b416imprw0y6p"]
 
-[ext_resource type="Script" path="res://src/bullets/cannonball.gd" id="1_0j264"]
+[ext_resource type="Script" uid="uid://ctt0o11wrj7e8" path="res://src/bullets/cannonball.gd" id="1_0j264"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_75hbg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ixrbm"]
@@ -9,7 +9,10 @@ region = Rect2(0, 96, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_riomt"]
 animations = [{
-"frames": [SubResource("AtlasTexture_ixrbm")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixrbm")
+}],
 "loop": true,
 "name": &"default",
 "speed": 5.0

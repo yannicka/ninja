@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvnq3dqvywyb0"]
 
-[ext_resource type="Script" path="res://src/enemies/arrow_shooter.gd" id="1_7omhe"]
+[ext_resource type="Script" uid="uid://rbfe5nwfie8x" path="res://src/enemies/arrow_shooter.gd" id="1_7omhe"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_udyds"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v3b1y"]
@@ -9,7 +9,10 @@ region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ewjvy"]
 animations = [{
-"frames": [SubResource("AtlasTexture_v3b1y")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3b1y")
+}],
 "loop": true,
 "name": &"default",
 "speed": 5.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bbacd0yemn180"]
 
-[ext_resource type="Script" path="res://src/enemies/turtle_spinning_top.gd" id="1_ubuym"]
+[ext_resource type="Script" uid="uid://bl3kljdvhsakd" path="res://src/enemies/turtle_spinning_top.gd" id="1_ubuym"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="2_8wueg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7m7u0"]
@@ -9,7 +9,10 @@ region = Rect2(0, 176, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nr2fk"]
 animations = [{
-"frames": [SubResource("AtlasTexture_7m7u0")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m7u0")
+}],
 "loop": true,
 "name": &"default",
 "speed": 5.0

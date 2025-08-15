@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://b0yr55r2vs7j1"]
 
-[ext_resource type="Script" path="res://src/player.gd" id="1_nxbjv"]
+[ext_resource type="Script" uid="uid://blgbfd40bmqu0" path="res://src/player.gd" id="1_nxbjv"]
 [ext_resource type="Texture2D" uid="uid://chs23kcx8ip2b" path="res://assets/particles.png" id="2_6ojfv"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="2_u7a5e"]
 
@@ -13,8 +13,6 @@ particles_anim_loop = false
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2onol"]
 particle_flag_disable_z = true
 gravity = Vector3(-98, 0, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
 linear_accel_max = 66.66
 anim_offset_max = 1.0
 
@@ -36,17 +34,29 @@ region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lhsdo"]
 animations = [{
-"frames": [SubResource("AtlasTexture_frqgx")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frqgx")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_3qw3q")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qw3q")
+}],
 "loop": true,
 "name": &"jump",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_vdxav"), SubResource("AtlasTexture_oh6vh")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdxav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh6vh")
+}],
 "loop": true,
 "name": &"walk",
 "speed": 8.0
@@ -90,8 +100,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oeehf"]
 _data = {
-"RESET": SubResource("Animation_6fo3u"),
-"die": SubResource("Animation_xwvhh")
+&"RESET": SubResource("Animation_6fo3u"),
+&"die": SubResource("Animation_xwvhh")
 }
 
 [node name="Player" type="CharacterBody2D"]

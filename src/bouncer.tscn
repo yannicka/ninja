@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://clvpccyvfuaep"]
 
-[ext_resource type="Script" path="res://src/bouncer.gd" id="1_8f6vq"]
+[ext_resource type="Script" uid="uid://dxshgjgcvtiur" path="res://src/bouncer.gd" id="1_8f6vq"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_q23p2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8oj5h"]
@@ -25,12 +25,33 @@ region = Rect2(0, 64, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_45prm"]
 animations = [{
-"frames": [SubResource("AtlasTexture_8oj5h"), SubResource("AtlasTexture_m2bmy"), SubResource("AtlasTexture_nahjw"), SubResource("AtlasTexture_m2bmy"), SubResource("AtlasTexture_8oj5h"), SubResource("AtlasTexture_ges46")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oj5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2bmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nahjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2bmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oj5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ges46")
+}],
 "loop": false,
 "name": &"bounce",
 "speed": 30.0
 }, {
-"frames": [SubResource("AtlasTexture_vttl0")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vttl0")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://d1oheckhiajdm"]
 
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_u43wp"]
-[ext_resource type="Script" path="res://src/enemies/fireball.gd" id="1_wciyo"]
+[ext_resource type="Script" uid="uid://c3vpm5ggu0pik" path="res://src/enemies/fireball.gd" id="1_wciyo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rf1oy"]
 atlas = ExtResource("1_u43wp")
@@ -9,7 +9,10 @@ region = Rect2(0, 192, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b4154"]
 animations = [{
-"frames": [SubResource("AtlasTexture_rf1oy")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rf1oy")
+}],
 "loop": true,
 "name": &"default",
 "speed": 5.0
@@ -55,8 +58,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lr1kc"]
 _data = {
-"RESET": SubResource("Animation_trpje"),
-"fire": SubResource("Animation_nyvv8")
+&"RESET": SubResource("Animation_trpje"),
+&"fire": SubResource("Animation_nyvv8")
 }
 
 [node name="Fireball" type="Node2D"]

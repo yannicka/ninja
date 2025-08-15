@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://d31v4p3ys8rq0"]
 
-[ext_resource type="Script" path="res://src/enemies/electric_ball.gd" id="1_8h5bv"]
+[ext_resource type="Script" uid="uid://t6n8tj2vgiqr" path="res://src/enemies/electric_ball.gd" id="1_8h5bv"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_pryyx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4y2xj"]
@@ -17,7 +17,16 @@ region = Rect2(32, 128, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fangg"]
 animations = [{
-"frames": [SubResource("AtlasTexture_4y2xj"), SubResource("AtlasTexture_1dttw"), SubResource("AtlasTexture_rl4aw")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4y2xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dttw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rl4aw")
+}],
 "loop": true,
 "name": &"electric",
 "speed": 8.0

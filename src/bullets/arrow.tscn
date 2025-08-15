@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://f6fiwpkppuhx"]
 
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_f6nq1"]
-[ext_resource type="Script" path="res://src/bullets/arrow.gd" id="1_h8w7f"]
+[ext_resource type="Script" uid="uid://bb78mqwurmxsw" path="res://src/bullets/arrow.gd" id="1_h8w7f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a0h1e"]
 atlas = ExtResource("1_f6nq1")
@@ -21,12 +21,24 @@ region = Rect2(16, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d4pvl"]
 animations = [{
-"frames": [SubResource("AtlasTexture_a0h1e"), SubResource("AtlasTexture_1ay5b"), SubResource("AtlasTexture_s5qcx")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0h1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ay5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5qcx")
+}],
 "loop": true,
 "name": &"launched",
 "speed": 10.0
 }, {
-"frames": [SubResource("AtlasTexture_8d8p8")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d8p8")
+}],
 "loop": true,
 "name": &"stop",
 "speed": 5.0

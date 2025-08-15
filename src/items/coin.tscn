@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cavkorlagj25h"]
 
-[ext_resource type="Script" path="res://src/items/coin.gd" id="1_g0o8r"]
+[ext_resource type="Script" uid="uid://k7yk5yk750a2" path="res://src/items/coin.gd" id="1_g0o8r"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_tvnro"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5cwiv"]
@@ -9,7 +9,10 @@ region = Rect2(0, 224, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_10qxr"]
 animations = [{
-"frames": [SubResource("AtlasTexture_5cwiv")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cwiv")
+}],
 "loop": true,
 "name": &"default",
 "speed": 5.0

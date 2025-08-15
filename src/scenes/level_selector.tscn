@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bhvqwwa7lrvjl"]
 
-[ext_resource type="Script" path="res://src/scenes/level_selector.gd" id="1_3mium"]
+[ext_resource type="Script" uid="uid://btg43qbd05y0b" path="res://src/scenes/level_selector.gd" id="1_3mium"]
 
 [node name="LevelSelector" type="Control"]
 layout_mode = 3
