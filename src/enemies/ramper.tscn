@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c36g75m4d2cqv"]
+[gd_scene load_steps=7 format=3 uid="uid://c36g75m4d2cqv"]
 
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_07juk"]
 [ext_resource type="Script" uid="uid://bu1pvkbepfuae" path="res://src/enemies/ramper.gd" id="1_ffbvr"]
@@ -28,28 +28,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_03qnk"]
 radius = 5.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rp3it"]
-radius = 5.0
-
 [node name="Ramper" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 20
 script = ExtResource("1_ffbvr")
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
-frames = SubResource("SpriteFrames_nqm7r")
+sprite_frames = SubResource("SpriteFrames_nqm7r")
 animation = &"walk"
-playing = true
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_03qnk")
-
-[node name="Area2d" type="Area2D" parent="."]
-collision_layer = 2
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_rp3it")
-
-[connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]
+debug_color = Color(0, 0, 1, 0.266667)

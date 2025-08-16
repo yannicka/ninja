@@ -45,9 +45,8 @@ script = ExtResource("1_fqcre")
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 2)
-frames = SubResource("SpriteFrames_6s1dl")
+sprite_frames = SubResource("SpriteFrames_6s1dl")
 animation = &"wait"
-playing = true
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(1, 1)

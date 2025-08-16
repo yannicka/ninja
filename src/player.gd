@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
+class_name Player
+
 const RUN_SPEED = 200
 const BOOST_SPEED = 320
 const JUMP_VELOCITY = -470
 const GRAVITY = 2000
+const STOMP_IMPULSE = 400
 
 var direction = Vector2.RIGHT
 var is_dead = false
@@ -25,14 +28,14 @@ func _physics_process(delta: float) -> void:
 		die()
 		return
 
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-
-		if collision.get_collider().has_method("fall"):
-			collision.get_collider().fall(delta)
-
-		if collision.get_collider().has_method("advance"):
-			collision.get_collider().advance(delta)
+	# for i in get_slide_collision_count():
+	# 	var collision = get_slide_collision(i)
+	# 
+	# 	if collision.get_collider().has_method("fall"):
+	# 		collision.get_collider().fall(delta)
+	# 
+	# 	if collision.get_collider().has_method("advance"):
+	# 		collision.get_collider().advance(delta)
 
 	if not OS.has_feature("mobile"):
 		if OS.is_debug_build():
@@ -78,6 +81,24 @@ func _physics_process(delta: float) -> void:
 		state = "idle"
 
 	move_and_slide()
+	
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider is Ramper:
+			var is_stomping = (
+				collider is Ramper and
+				is_on_floor() and
+				collision.get_normal().dot(Vector2.UP) > 0.7
+			)
+			
+			if is_stomping:
+				velocity.y = -STOMP_IMPULSE
+				
+				(collider as Ramper).kill()
+			else:
+				die()
 
 	if is_on_floor():
 		if velocity.x != 0:

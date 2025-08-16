@@ -8,6 +8,8 @@ const GRAVITY = 500
 var direction = Vector2.LEFT
 
 func _ready() -> void:
+	add_to_group("stompable")
+
 	scale.x = direction.x
 
 	var timer = Timer.new()

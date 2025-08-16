@@ -106,11 +106,10 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 process_mode = 3
-collision_mask = 52
+collision_mask = 54
 script = ExtResource("1_nxbjv")
 
 [node name="Camera2d" type="Camera2D" parent="."]
-current = true
 limit_left = 0
 limit_top = 0
 limit_bottom = 256
@@ -128,26 +127,20 @@ process_mode = 1
 visible = false
 material = SubResource("CanvasItemMaterial_ghe24")
 amount = 20
-process_material = SubResource("ParticleProcessMaterial_2onol")
 texture = ExtResource("2_6ojfv")
+process_material = SubResource("ParticleProcessMaterial_2onol")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-frames = SubResource("SpriteFrames_lhsdo")
+sprite_frames = SubResource("SpriteFrames_lhsdo")
 animation = &"idle"
-playing = true
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)
 shape = SubResource("CapsuleShape2D_dgka0")
 
-[node name="RayCast2d" type="RayCast2D" parent="."]
-visible = false
-target_position = Vector2(0, 16)
-collision_mask = 8
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_oeehf")
+&"": SubResource("AnimationLibrary_oeehf")
 }
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
