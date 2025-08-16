@@ -21,5 +21,5 @@ func _physics_process(delta: float) -> void:
 	position = center_position + offset
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("die"):
-		body.die()
+	if body.has_method("kill"):
+		body.kill()

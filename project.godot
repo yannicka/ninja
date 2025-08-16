@@ -29,6 +29,10 @@ window/size/window_height_override=512
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
+[global_group]
+
+stompable="Si le joueur saute dessus, l'ennemi meurt. Sinon, c'est le joueur qui meurt."
+
 [input]
 
 space={

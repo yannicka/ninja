@@ -1,15 +1,11 @@
 extends CharacterBody2D
 
-class_name Ramper
-
 const SPEED = 18
 const GRAVITY = 500
 
 @export var direction = Vector2.RIGHT
 
 func _ready() -> void:
-	add_to_group("stompable")
-	
 	scale.x = direction.x
 	velocity.x = SPEED * direction.x
 

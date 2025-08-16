@@ -25,7 +25,8 @@ func _physics_process(delta: float) -> void:
 	var viewport_height = get_viewport_rect().size.y
 
 	if global_position.y > viewport_height + 24:
-		die()
+		kill()
+
 		return
 
 	# for i in get_slide_collision_count():
@@ -85,20 +86,19 @@ func _physics_process(delta: float) -> void:
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
-		
-		if collider is Ramper:
-			var is_stomping = (
-				collider is Ramper and
-				is_on_floor() and
-				collision.get_normal().dot(Vector2.UP) > 0.7
-			)
-			
-			if is_stomping:
-				velocity.y = -STOMP_IMPULSE
-				
-				(collider as Ramper).kill()
+
+		if collider == null:
+			continue
+
+		if collider.is_in_group("stompable"):
+			if Vector2.UP.dot(collision.get_normal()) > 0.1:
+				collider.kill()
+
+				bounce()
+
+				break
 			else:
-				die()
+				kill()
 
 	if is_on_floor():
 		if velocity.x != 0:
@@ -117,7 +117,7 @@ func set_direction(direction: Vector2) -> void:
 func bounce():
 	velocity.y = -400
 
-func die():
+func kill():
 	is_dead = true
 	velocity = Vector2(0, 0)
 
@@ -132,7 +132,7 @@ func die_or_bounce(deadly: bool = true):
 		return "bounce"
 	else:
 		if deadly:
-			die()
+			kill()
 
 			return "die"
 
