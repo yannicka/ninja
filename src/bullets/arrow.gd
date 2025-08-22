@@ -22,7 +22,6 @@ func on_start() -> void:
 
 	deadly = true
 
-	$Area2D/CollisionShape2d.disabled = false
 	$AnimatedSprite2d.play("launched")
 
 	var timer = Timer.new()
@@ -36,15 +35,8 @@ func on_remove() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if is_on_wall():
-		deadly = false
+		remove_from_group("stompable")
 
 		$AnimatedSprite2d.play("stop")
 
 	move_and_slide()
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("die_or_bounce"):
-		var die_or_bounce = body.die_or_bounce(deadly)
-
-		if die_or_bounce == "bounce":
-			queue_free()

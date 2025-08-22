@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cujtu2lbvi2br"]
+[gd_scene load_steps=10 format=3 uid="uid://cujtu2lbvi2br"]
 
 [ext_resource type="Script" uid="uid://c0gy3xnij1py" path="res://src/enemies/eye.gd" id="1_l4aqx"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_u6mxy"]
@@ -27,9 +27,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5w2h"]
 radius = 3.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_xin3d"]
-radius = 2.0
 
 [sub_resource type="Animation" id="Animation_jojc4"]
 length = 0.001
@@ -69,31 +66,21 @@ _data = {
 &"fly": SubResource("Animation_1tmjw")
 }
 
-[node name="Eye" type="Node2D"]
+[node name="Eye" type="Node2D" groups=["stompable"]]
 script = ExtResource("1_l4aqx")
 
 [node name="CharacterBody2d" type="CharacterBody2D" parent="."]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 2
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="CharacterBody2d"]
-frames = SubResource("SpriteFrames_nve8d")
+sprite_frames = SubResource("SpriteFrames_nve8d")
 animation = &"fly"
-playing = true
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="CharacterBody2d"]
 shape = SubResource("CircleShape2D_d5w2h")
 
-[node name="Area2d" type="Area2D" parent="CharacterBody2d"]
-collision_layer = 2
-
-[node name="CollisionShape2d2" type="CollisionShape2D" parent="CharacterBody2d/Area2d"]
-shape = SubResource("CircleShape2D_xin3d")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "fly"
 libraries = {
-"": SubResource("AnimationLibrary_u7tpu")
+&"": SubResource("AnimationLibrary_u7tpu")
 }
-
-[connection signal="body_entered" from="CharacterBody2d/Area2d" to="." method="_on_area_2d_body_entered"]
+autoplay = "fly"

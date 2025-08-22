@@ -91,8 +91,8 @@ func _physics_process(delta: float) -> void:
 			continue
 
 		if collider.is_in_group("stompable"):
-			if Vector2.UP.dot(collision.get_normal()) > 0.1:
-				collider.kill()
+			if Vector2.UP.dot(collision.get_normal()) > 0.5:
+				kill_enemy(collider)
 
 				bounce()
 
@@ -125,7 +125,10 @@ func kill():
 
 	get_tree().paused = true
 
-func die_or_bounce(deadly: bool = true):
+func kill_enemy(enemy: Node) -> void:
+	enemy.queue_free()
+
+func kill_or_bounce(deadly: bool = true):
 	if state == "fall":
 		bounce()
 

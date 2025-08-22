@@ -21,6 +21,3 @@ func _physics_process(delta: float) -> void:
 		scale.x = -1
 
 	move_and_slide()
-
-func kill() -> void:
-	queue_free()

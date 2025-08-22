@@ -66,11 +66,10 @@ _data = {
 script = ExtResource("1_wciyo")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D"]
-frames = SubResource("SpriteFrames_b4154")
+sprite_frames = SubResource("SpriteFrames_b4154")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 shape = SubResource("CircleShape2D_ji0pj")
@@ -82,9 +81,9 @@ collision_layer = 2
 shape = SubResource("CircleShape2D_2gx8n")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "fire"
 libraries = {
-"": SubResource("AnimationLibrary_lr1kc")
+&"": SubResource("AnimationLibrary_lr1kc")
 }
+autoplay = "fire"
 
 [connection signal="body_entered" from="AnimatableBody2D/Area2D" to="." method="_on_area_2d_body_entered"]

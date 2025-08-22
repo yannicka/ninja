@@ -23,10 +23,17 @@ size = Vector2(16, 16)
 
 [node name="ArrowShooter" type="StaticBody2D"]
 collision_layer = 16
+collision_mask = 119
 script = ExtResource("1_7omhe")
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
-frames = SubResource("SpriteFrames_ewjvy")
+sprite_frames = SubResource("SpriteFrames_ewjvy")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rr16m")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

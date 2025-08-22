@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bersa8l0ueg37"]
+[gd_scene load_steps=9 format=3 uid="uid://bersa8l0ueg37"]
 
 [ext_resource type="Script" uid="uid://dsrtjlb8sqmm5" path="res://src/enemies/cannon.gd" id="1_0eypk"]
 [ext_resource type="Texture2D" uid="uid://cuce11m0j3lf1" path="res://assets/layers.png" id="1_bajk2"]
@@ -40,32 +40,21 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3yxfk"]
 radius = 5.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gb5p8"]
-radius = 5.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7oxf"]
 size = Vector2(12, 3)
 
-[node name="Cannon" type="CharacterBody2D"]
+[node name="Cannon" type="CharacterBody2D" groups=["stompable"]]
 collision_layer = 2
-collision_mask = 20
+collision_mask = 21
 script = ExtResource("1_0eypk")
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
-frames = SubResource("SpriteFrames_8p4d7")
+sprite_frames = SubResource("SpriteFrames_8p4d7")
 animation = &"walk"
-playing = true
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_3yxfk")
-
-[node name="Area2d" type="Area2D" parent="."]
-collision_layer = 2
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_gb5p8")
 
 [node name="ShooterArea2d" type="Area2D" parent="."]
 collision_layer = 2
@@ -75,5 +64,12 @@ collision_mask = 8
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_s7oxf")
 
-[connection signal="body_entered" from="Area2d" to="." method="_on_area_2d_body_entered"]
+[node name="PrepareShotTimer" type="Timer" parent="."]
+wait_time = 2.6
+autostart = true
+
+[node name="BeforeShotTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="ShooterArea2d" to="." method="_on_shooter_area_2d_body_entered"]
+[connection signal="timeout" from="PrepareShotTimer" to="." method="_on_prepare_shot_timer_timeout"]
+[connection signal="timeout" from="BeforeShotTimer" to="." method="_on_before_shot_timer_timeout"]

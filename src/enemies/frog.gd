@@ -8,8 +8,6 @@ const GRAVITY = 500
 var direction = Vector2.LEFT
 
 func _ready() -> void:
-	add_to_group("stompable")
-
 	scale.x = direction.x
 
 	var timer = Timer.new()
@@ -43,6 +41,3 @@ func on_timer_timeout() -> void:
 		scale.x = -1
 
 	$AnimatedSprite2d.play("jump")
-
-func kill() -> void:
-	queue_free()

@@ -39,14 +39,12 @@ radius = 4.0
 radius = 4.12311
 
 [node name="ElectricBall" type="StaticBody2D"]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 2
 script = ExtResource("1_8h5bv")
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="."]
-frames = SubResource("SpriteFrames_fangg")
+sprite_frames = SubResource("SpriteFrames_fangg")
 animation = &"electric"
-playing = true
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_patmw")
